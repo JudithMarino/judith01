@@ -7,8 +7,9 @@
     
     body{
     
-height: 100vh;
-     background-color: #F5F5F5;
+    min-height: 100vh;
+    background: linear-gradient(#051f30, #000000);
+
     
     }
     
