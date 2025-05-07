@@ -66,3 +66,27 @@ body {
 .details.open .summary::after {
   transform: rotate(180deg);
 }
+.search-btn {
+  display: flex;
+  align-items: center;
+}
+
+.btn-back {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+  padding: 8px 16px;
+  background-color: #458be7;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-back i {
+  margin-right: 8px;
+}
+
+.btn-back:hover {
+  background-color: #c00009;
+}
