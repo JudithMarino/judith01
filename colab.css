@@ -1,66 +1,69 @@
-*{
-    padding:0;
-     margin:0;
-     box-sizing: border-box;
-     font-family: Arial, Helvetica, sans-sefif;
-    }
-    
-    body{
-    
-    min-height: 100vh;
-    background: linear-gradient(#051f30, #000000);
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif; /* Corregido "sans-sefif" a "sans-serif" */
+}
 
-    
-    }
-    
-    .container {
-     max-width: 1200px;
+body {
+    height: 100vh;
+    background: linear-gradient(#051f30, #000000); /* Aplicando el degradado */
+}
+
+.container {
+    max-width: 1200px;
     margin: 0 auto;
-    }
-    
-    .search {
-     padding: 50px 0;
-    display:flex;
-     align-items: center;
-     justify-content: space-between;
-    }
-    .search i {
-     font-size: 25px;
-     color: #111111;
-    }
-    .search-txt {
-     display: flex;
-     align-items: center;
-     }
-     .search-txt i{
+}
+
+.search {
+    padding: 50px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.search i {
+    font-size: 25px;
+    color: #111111;
+}
+
+.search-txt {
+    display: flex;
+    align-items: center;
+}
+
+.search-txt i {
     font-size: 40px;
     color: #F8010A;
-     }
-    .search-txt h2{
+}
+
+.search-txt h2 {
     color: #111111;
- font-size: 30px;
+    font-size: 30px;
     margin-left: 10px;
-    }
-    
-    .movies{
+}
+
+.movies {
     padding: 50px 0 150px 0;
-     }
-    
-     .movies h2{
-     font-size: 25px;
-     font-weight: 400;
-     margin-bottom: 20px;
-     }
-    
-     .swiper{
+}
+
+.movies h2 {
+    font-size: 25px;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.swiper {
     width: 100%;
-     }
-     .swiper-slide{
-     background-position: center;
-     background-size: cover;
-     width: 250px;
-    }
-     .swiper-slide img {
-     display: block;
-     width: 100%;
-    }
+}
+
+.swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 250px;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+}
