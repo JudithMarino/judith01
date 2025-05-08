@@ -6,44 +6,60 @@
 
 body {
     display: flex;
-    justify-content: center;
+    flex-direction: column; /* Cambiado a columna para que la navbar esté en la parte superior */
+    justify-content: flex-start; /* Asegura que el contenido empiece desde arriba */
     align-items: center;
-    background: #000;
-    min-height: 100vh;
-    min-width: 450px;
-    min-height: 100vh;
     background: linear-gradient(#051f30, #000000);
+    min-height: 100vh;
+}
+
+.navbar {
+    display: flex; /* Usar flexbox para la barra de navegación */
+    justify-content: space-between; /* Espacio entre los botones */
+    align-items: center; /* Centrar verticalmente */
+    background-color: transparent; /* Cambiar el fondo a transparente */
+    padding: 10px 20px; /* Espaciado interno */
+    width: 100%; /* Ancho completo */
+    box-shadow: 0 2px 5px rgba(43, 47, 53, 0.5); /* Sombra para dar profundidad */
+}
+
+.nav-button {
+    background-color: #0a2742; /* Fondo de los botones */
+    color: rgb(209, 221, 247); /* Color de texto de los botones */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 10px 15px; /* Espaciado interno de los botones */
+    cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+    transition: background-color 0.3s; /* Transición suave para el color de fondo */
+}
+
+.nav-button:hover {
+    background-color: rgb(150, 150, 150); /* Cambiar color al pasar el mouse */
 }
 
 .card-wrapper {
     display: flex;
-    gap: 10px;
-    width: 600px;
-    height: 400px;
+    flex-wrap: wrap; /* Permitir que las tarjetas se ajusten a múltiples filas */
+    gap: 15px; /* Espacio entre tarjetas */
+    max-width: 1000px; /* Ancho máximo para la tarjeta */
+    width: 100%; /* Ancho completo */
+    margin: 20px auto; /* Centrar el contenedor */
     font-family: 'Calibri';
 }
 
 .card {
-    flex: 1;
+    flex: 1 1 calc(25% - 15px); /* Ajustar el tamaño de las tarjetas para que quepan 4 por fila */
     overflow: hidden;
     position: relative;
     border-radius: 8px;
-    transition: flex .3s;
     border: 1px solid #ffffff63;
-}
-
-.card:hover {
-    flex: 5;
-}
-
-.card:hover .text-wrapper {
-    transform: translateY(0);
+    height: 500px; /* Altura fija para las tarjetas */
 }
 
 .card img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: 100%; /* Mantener la altura completa de la tarjeta */
+    object-fit: cover; /* Asegurar que la imagen cubra toda el área */
 }
 
 .text-wrapper {
@@ -52,9 +68,13 @@ body {
     color: white;
     padding: 15px;
     text-align: justify;
-    transform: translateY(100%);
-    transition: transform .4s ease-in-out;
+    transform: translateY(100%); /* Comienza fuera de la vista */
+    transition: transform .4s ease-in-out; /* Transición suave */
     background: linear-gradient(transparent, rgba(0, 0, 0, 0.538) 20%, black 70%);
+}
+
+.card:hover .text-wrapper {
+    transform: translateY(0); /* Mover hacia arriba al pasar el cursor */
 }
 
 .text-wrapper a {
@@ -73,4 +93,16 @@ body {
 .text-wrapper span {
     color: rgb(212, 212, 212);
     font-size: 12px;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .card {
+        flex: 1 1 100%; /* Las tarjetas ocuparán el 100% en pantallas pequeñas */
+        height: auto; /* Altura automática en pantallas pequeñas */
+    }
+
+    .card-wrapper {
+        gap: 10px; /* Espacio reducido en pantallas pequeñas */
+    }
 }

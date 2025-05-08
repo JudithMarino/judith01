@@ -7,10 +7,35 @@
 body {
   color: white;
   display: flex;
+  flex-direction: column; /* Cambiado a columna para que la navbar esté en la parte superior */
   min-height: 100vh;
-  justify-content: center;
+  justify-content: flex-start; /* Asegura que el contenido empiece desde arriba */
   font-family: 'Baloo bhai 2';
   background: linear-gradient(#03050c, black, #0b1225);
+}
+
+.navbar {
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  background-color: transparent; 
+  padding: 10px 20px; 
+  width: 100%; /* Cambiado a 100% para evitar problemas de ancho */
+  box-shadow: 0 2px 5px rgba(43, 47, 53, 0.5); 
+}
+
+.nav-button {
+  background-color: #0a2742; 
+  color: rgb(209, 221, 247); 
+  border: none; 
+  border-radius: 5px; 
+  padding: 10px 15px; 
+  cursor: pointer; 
+  transition: background-color 0.3s; 
+}
+
+.nav-button:hover {
+  background-color: rgb(150, 150, 150); 
 }
 
 .accordion {
@@ -19,7 +44,7 @@ body {
   width: 600px;
   padding: 15px;
   list-style: none;
-  margin-top: 100px;
+  margin-top: 20px; /* Ajustado para dar espacio entre la navbar y el contenido */
   border-radius: 10px;
   height: max-content;
   flex-direction: column;
@@ -60,33 +85,19 @@ body {
   overflow: hidden;
   font-size: 15px;
   transition: height .3s;
-  color: rgb(198 198 198);
+  color: rgb(198, 198, 198);
 }
 
 .details.open .summary::after {
   transform: rotate(180deg);
 }
-.search-btn {
-  display: flex;
-  align-items: center;
-}
 
-.btn-back {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  color: #fff;
-  font-size: 16px;
-  padding: 8px 16px;
-  background-color: #458be7;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
-}
-
-.btn-back i {
-  margin-right: 8px;
-}
-
-.btn-back:hover {
-  background-color: #c00009;
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .menu {
+      width: 60px; 
+  }
+  .info {
+      margin-left: 60px; 
+  }
 }

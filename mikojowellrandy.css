@@ -106,4 +106,12 @@ body {
     max-height: 100%;
     object-fit: contain;
 }
-
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .menu {
+        width: 60px; /* Reducir el ancho del menú en pantallas más pequeñas */
+    }
+    .info {
+        margin-left: 60px; /* Ajustar margen en pantallas más pequeñas */
+    }
+}

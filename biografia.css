@@ -1,0 +1,51 @@
+body {
+    min-height: 100vh;
+    background: linear-gradient(#051f30, #000000);
+    display: flex; /* Usar flexbox para alinear el menú y la información */
+    flex-direction: column; /* Cambiar la dirección a columna para la barra de navegación */
+}
+
+.navbar {
+    display: flex; /* Usar flexbox para la barra de navegación */
+    justify-content: space-between; /* Espacio entre los botones */
+    align-items: center; /* Centrar verticalmente */
+    background-color: transparent; /* Cambiar el fondo a transparente */
+    padding: 10px 20px; /* Espaciado interno */
+    width: 98%; /* Ancho completo */
+    box-shadow: 0 2px 5px rgba(43, 47, 53, 0.5); /* Sombra para dar profundidad */
+}
+
+.nav-button {
+    background-color: #0a2742; /* Fondo de los botones */
+    color: rgb(209, 221, 247); /* Color de texto de los botones */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 10px 15px; /* Espaciado interno de los botones */
+    cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+    transition: background-color 0.3s; /* Transición suave para el color de fondo */
+}
+
+.nav-button:hover {
+    background-color: rgb(150, 150, 150); /* Cambiar color al pasar el mouse */
+}
+
+.info {
+    padding: 20px;
+    color: rgb(209, 221, 247); /* Color de texto coherente */
+    flex: 1; /* Ocupa el espacio restante */
+    overflow-y: auto; /* Habilitar desplazamiento vertical si es necesario */
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Cambiar a columna en pantallas más pequeñas */
+        align-items: stretch; /* Alinear los botones al ancho completo */
+    }
+    
+    .nav-button {
+        margin-bottom: 10px; /* Espaciado entre botones */
+        width: 100%; /* Botones ocupan el ancho completo */
+    }
+}
+
