@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Colaboraciones - Young Miko</title>
+  <link rel="stylesheet" href="css/colaboraciones.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body>
+  <button id="toggleMenu" class="hamburger" aria-label="Abrir menú" aria-expanded="false">
+      <i class="fas fa-bars"></i>
+    </button>
+  <div class="container">
+<nav class="sidebar" id="navLinks">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="biografia.html">Biografía</a></li>
+        <li><a href="trivia.html">Trivia</a></li>
+        <li><a href="colaboraciones.html" class="active">Colaboraciones</a></li>
+        <li><a href="datos.html">Datos</a></li>
+        <li><a href="unete.html">Únete</a></li>
+      </ul>
+    </nav>
+
+    <main class="content">
+      <section class="collaborations-list">
+        <h1>Colaboraciones</h1>
+        <div class="collaborations-grid">
+          <a href="./colaboraciones/colaboracion1.html" class="collab-item">
+            <img src="img/c1.jpeg" alt="Young Miko x Yandel - Cuando Te Toca">
+            <h3>Young Miko x Yandel - Cuando Te Toca</h3>
+          </a>
+          <a href="./colaboraciones/colaboracion2.html" class="collab-item">
+            <img src="img/c2.jpeg" alt="Young Miko x Bad Bunny - Fecha Ejemplo">
+            <h3>Young Miko x Bad Bunny - Ejemplo de Título</h3>
+          </a>
+          <a href="./colaboraciones/colaboracion3.html" class="collab-item">
+            <img src="img/c3.jpg" alt="Young Miko x Karol G - Título Ejemplo">
+            <h3>Young Miko x Karol G - Otra Canción</h3>
+          </a>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script>
+  const toggleButton = document.getElementById('toggleMenu');
+  const sidebar = document.getElementById('navLinks');
+
+  toggleButton.addEventListener('click', () => {
+    sidebar.classList.toggle('active');
+    
+    const isExpanded = toggleButton.getAttribute('aria-expanded') === 'true';
+    toggleButton.setAttribute('aria-expanded', !isExpanded);
+  });
+</script>
+
+</body>
+</html>

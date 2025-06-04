@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bienvenidos - Young Miko</title>
+  <link rel="stylesheet" href="css/index.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body>
+  <button id="toggleMenu" class="hamburger" aria-label="Abrir menú" aria-expanded="false">
+      <i class="fas fa-bars"></i>
+    </button>
+  <div class="container">
+<nav class="sidebar" id="navLinks">
+
+    <ul>
+        <li><a href="index.html" class="active">Inicio</a></li>
+        <li><a href="biografia.html">Biografía</a></li>
+        <li><a href="trivia.html">Trivia</a></li>
+        <li><a href="colaboraciones.html">Colaboraciones</a></li>
+        <li><a href="datos.html">Datos</a></li>
+        <li><a href="unete.html">Únete</a></li>
+      </ul>
+    </nav>
+
+    <main class="content">
+      <section class="welcome">
+        <div style="position:relative;width:100%;max-width:800px;margin:0 auto 2rem auto;overflow:hidden;border-radius:16px;box-shadow:0 4px 32px rgba(0,0,0,0.10);background:#000;">
+          <video id="intro-video" src="img/intro.mp4" autoplay loop muted playsinline style="width:100%;height:400px;display:block;object-fit:cover;pointer-events:none;background:#000;"></video>
+        </div>
+        <script>
+          document.addEventListener('DOMContentLoaded', function() {
+            var video = document.getElementById('intro-video');
+            function setStartTime() {
+              if (video.currentTime < 79) {
+                video.currentTime = 79;
+              }
+            }
+            video.addEventListener('loadedmetadata', setStartTime);
+            video.addEventListener('play', setStartTime);
+            video.addEventListener('playing', setStartTime);
+            // Si el usuario refresca, fuerza el tiempo de inicio tras un pequeño delay
+            setTimeout(setStartTime, 300);
+          });
+        </script>
+        <h1>Bienvenid@ al sitio oficial de Young Miko</h1>
+        <p>Explora su historia, datos curiosos, colaboraciones y mucho más sobre una de las artistas más prometedoras del género urbano.</p>
+      </section>
+    </main>
+  </div>
+  <script src="js/menu.js"></script>
+  <script>
+  const toggleMenu = document.getElementById('toggleMenu');
+const navLinks = document.getElementById('navLinks'); // <- Esto está bien ahora
+const icon = toggleMenu.querySelector('i');
+
+toggleMenu.addEventListener('click', () => {
+  const isActive = navLinks.classList.toggle('active');
+  toggleMenu.setAttribute('aria-expanded', isActive);
+  icon.className = isActive ? 'fas fa-times' : 'fas fa-bars';
+});
+
+document.querySelectorAll('#navLinks a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+    toggleMenu.setAttribute('aria-expanded', 'false');
+    icon.className = 'fas fa-bars';
+  });
+});
+
+</script>
+
+</body>
+</html>
