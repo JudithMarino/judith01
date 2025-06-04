@@ -1,0 +1,111 @@
+@import url('index.css');  /* Reutilizamos el diseño base del menú */
+
+body, html {
+  background: transparent;
+}
+
+.content {
+  flex-grow: 1;
+  padding: 3rem 2.5rem;
+  background: #fff;
+  box-shadow: 0 0 40px rgba(0,0,0,0.04);
+  border-radius: 18px;
+  margin: 2rem auto;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bio {
+  background: #f8fafc;
+  border-radius: 18px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.08);
+  padding: 2rem 2.5rem;
+  margin-bottom: 2.5rem;
+  width: 100%;
+  max-width: 800px;
+  position: relative;
+  overflow: hidden;
+}
+
+.bio h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  color: #222;
+  margin-bottom: 1.2rem;
+  letter-spacing: 0.01em;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.bio img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.6);
+}
+
+.bio p {
+  color: #444;
+  font-size: 1.2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+/* Estilos para los iconos de redes sociales */
+.social-icon {
+  display: inline-block;
+  margin: 0 10px;
+  text-decoration: none;
+  vertical-align: middle;
+  transition: transform 0.2s;
+}
+
+.social-icon:hover {
+  transform: scale(1.1);
+}
+
+.icon-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  background: transparent;
+  box-shadow: 0 2px 8px rgba(30, 58, 138, 0.08);
+}
+
+.social-icon svg {
+  display: block;
+  width: 38px;
+  height: 38px;
+}
+
+/* Nueva clase para el pie de página social */
+.social-footer {
+  margin-top: 2.5rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.social-footer .social-icon {
+  margin: 0 10px;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .content {
+    padding: 1rem;
+  }
+
+  .bio h1 {
+    font-size: 1.5rem;
+  }
+
+  .bio p {
+    font-size: 1rem;
+  }
+}
