@@ -4,6 +4,54 @@ body, html {
   background: transparent;
 }
 
+.container {
+  display: flex;
+  min-height: 100vh;
+  background: transparent;
+  box-shadow: none;
+}
+
+.sidebar {
+  background: #fff;
+  height: 100vh;
+  width: 100vw;
+  min-width: unset;
+  max-width: unset;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 4px 0 24px rgba(0,0,0,0.07);
+  border-right: 1px solid #e0e0e0;
+  overflow-y: auto;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar ul li {
+  margin: 1rem 0;
+}
+
+.sidebar ul li a {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  color: #222;
+  background: transparent;
+  border-radius: 0;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s, color 0.3s;
+  display: block;
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+}
+
+.sidebar ul li a:hover, .sidebar ul li a.active {
+  color: var(--color-acento);
+  border-bottom: 2px solid var(--color-acento);
+  background: none;
+}
+
 .content {
   flex-grow: 1;
   padding: 3rem 2.5rem;
@@ -15,6 +63,9 @@ body, html {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
 }
 
 .collaborations-list {
@@ -76,9 +127,68 @@ body, html {
   color: #222;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+/* ===== MENÚ HAMBURGUESA RESPONSIVO ===== */
+.menu-toggle {
+  display: none;
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  background: none;
+  border: none;
+  font-size: 2.2rem;
+  color: var(--color-acento);
+  z-index: 1001;
+  cursor: pointer;
+}
+.menu-toggle .bar {
+  display: block;
+  width: 28px;
+  height: 4px;
+  margin: 5px auto;
+  background: var(--color-acento);
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+@media (max-width: 900px) {
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    background: #fff;
+    z-index: 1000;
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+    box-shadow: 4px 0 24px rgba(0,0,0,0.07);
+    border-right: 1px solid #e0e0e0;
+    flex-direction: column;
+    padding: 2rem 1.5rem;
+    overflow-y: auto;
+  }
+  .sidebar.active {
+    transform: translateX(0);
+  }
+  .menu-toggle {
+    display: block;
+  }
+  .container {
+    flex-direction: column;
+  }
   .content {
-    padding: 1rem;
+    margin: 2rem 0.5rem 0 0.5rem;
+    padding: 1.5rem 0.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .sidebar {
+    width: 180px;
+    padding: 1rem 0.5rem;
+  }
+  .content {
+    margin: 1rem 0.2rem 0 0.2rem;
+    padding: 1rem 0.2rem;
   }
 }
