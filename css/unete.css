@@ -271,3 +271,75 @@ body, html {
     padding: 1.2rem 0.7rem;
   }
 }
+/* Por defecto, ocultamos el botón hamburguesa */
+.hamburger {
+  display: none;
+}
+
+/* Sidebar visible por defecto en pantallas grandes */
+.sidebar {
+  position: relative;
+  width: 250px; /* ancho fijo para sidebar grande */
+  height: auto;
+  background: #d6dade;
+  color: #fff;
+  transform: translateX(0);
+  transition: none;
+  box-shadow: none;
+  border-left: none;
+  padding: 2.5rem 1.5rem 1.5rem 1.5rem;
+  flex-shrink: 0;
+}
+
+/* Layout container para mostrar sidebar y contenido lado a lado */
+.container {
+  display: flex;
+}
+
+/* En pantallas pequeñas */
+@media (max-width: 768px) {
+  /* Mostrar botón hamburguesa */
+  .hamburger {
+    display: block;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1100;
+    background: none;
+    border: none;
+    color: #2454f3;
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+
+  /* Sidebar inicialmente oculto, fuera de pantalla a la izquierda */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -270px; /* oculto fuera de pantalla */
+    width: 270px;
+    height: 100vh;
+    background: #e2e4e7;
+    padding-top: 60px;
+    box-shadow: 4px 0 24px rgba(0,0,0,0.15);
+    border-left: 1px solid #1a2a40;
+    transition: left 0.3s ease;
+    z-index: 1050;
+  }
+
+  /* Cuando el menú está activo (desplegado) */
+  .sidebar.active {
+    left: 0;
+  }
+
+  /* Para que el contenido ocupe todo el ancho cuando sidebar está oculto */
+  .content {
+    margin: 0.5rem 1rem;
+    padding: 1.5rem;
+  }
+
+  /* Container flex debe ser columna para pantallas pequeñas */
+  .container {
+    flex-direction: column;
+  }
+}

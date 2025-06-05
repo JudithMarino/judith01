@@ -6,76 +6,61 @@
   <title>Trivia - Young Miko</title>
   <link rel="stylesheet" href="css/trivia.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
 </head>
 <body>
-    <button id="toggleMenu" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
-  <i class="fas fa-bars"></i>
-</button>
+  <button id="toggleMenu" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+    <i class="fas fa-bars"></i>
+  </button>
 
   <div class="container">
-<nav class="sidebar" id="navLinks">
-        <ul>
-          <li><a href="index.html">Inicio</a></li>
-          <li><a href="biografia.html">Biografía</a></li>
-          <li><a href="trivia.html" class="active">Trivia</a></li>
-          <li><a href="colaboraciones.html">Colaboraciones</a></li>
-          <li><a href="datos.html">Datos</a></li>
-          <li><a href="unete.html">Únete</a></li>
-        </ul>
-      </nav>
+    <nav class="sidebar" id="navLinks">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="biografia.html">Biografía</a></li>
+        <li><a href="trivia.html" class="active">Trivia</a></li>
+        <li><a href="colaboraciones.html">Colaboraciones</a></li>
+        <li><a href="datos.html">Datos</a></li>
+        <li><a href="unete.html">Únete</a></li>
+      </ul>
+    </nav>
 
-      <main class="content">
-        <section class="trivia">
-          <h1>Trivia: ¿Cuánto sabes sobre Young Miko?</h1>
-         <div id="quiz-container">
-    <p id="question-number"></p>
-    <img id="question-image" src="" alt="Imagen de la pregunta" />
-    <div id="question"></div>
-    <div id="options"></div>
-    <button id="next-btn">Siguiente</button>
+    <main class="content">
+      <section class="trivia">
+        <h1>Trivia: ¿Cuánto sabes sobre Young Miko?</h1>
+        <div id="quiz-container">
+          <p id="question-number"></p>
+          <img id="question-image" src="" alt="Imagen de la pregunta" />
+          <div id="question"></div>
+          <div id="options"></div>
+          <button id="next-btn">Siguiente</button>
+        </div>
+      </section>
+    </main>
   </div>
 
-        </section>
-      </main>
-    </div>
+  <script src="js/trivia.js"></script>
+  <script>
+    const toggleMenuBtn = document.getElementById('toggleMenu');
+    const sidebar = document.getElementById('navLinks');
 
-    <script src="js/trivia.js"></script>
-<script>
- const toggleMenuBtn = document.getElementById('toggleMenu');
-const sidebar = document.getElementById('navLinks');
+    toggleMenuBtn.addEventListener('click', () => {
+      const isActive = sidebar.classList.toggle('active');
+      toggleMenuBtn.setAttribute('aria-expanded', isActive);
 
-toggleMenuBtn.addEventListener('click', () => {
-  const isActive = sidebar.classList.toggle('active');
+      if (isActive) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    });
 
-  toggleMenuBtn.setAttribute('aria-expanded', isActive);
-
-  if (isActive) {
-    document.body.style.overflow = 'hidden';
-  } else {
-    document.body.style.overflow = '';
-  }
-});
-
-document.addEventListener('click', (e) => {
-  if (!sidebar.contains(e.target) && !toggleMenuBtn.contains(e.target)) {
-    sidebar.classList.remove('active');
-    toggleMenuBtn.setAttribute('aria-expanded', false);
-    document.body.style.overflow = '';
-  }
-});
-
-
-// También puedes cerrar el menú si el usuario hace clic fuera (opcional)
-document.addEventListener('click', (e) => {
-  if (!sidebar.contains(e.target) && !toggleMenuBtn.contains(e.target)) {
-    sidebar.classList.remove('active');
-    toggleMenuBtn.setAttribute('aria-expanded', false);
-    document.body.style.overflow = '';
-  }
-});
-
+    document.addEventListener('click', (e) => {
+      if (!sidebar.contains(e.target) && !toggleMenuBtn.contains(e.target)) {
+        sidebar.classList.remove('active');
+        toggleMenuBtn.setAttribute('aria-expanded', false);
+        document.body.style.overflow = '';
+      }
+    });
   </script>
-
-  </body>
+</body>
 </html>

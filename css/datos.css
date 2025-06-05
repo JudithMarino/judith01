@@ -164,3 +164,30 @@ body, html {
     padding: 1.2rem 0.7rem;
   }
 }
+#btnGeneratePDF {
+  background: linear-gradient(90deg, #1127f1 0%, #3a4fff 100%);
+  color: white;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(17, 39, 241, 0.4);
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+  margin: 1rem auto 2rem auto;
+  display: block;
+  text-align: center;
+  user-select: none;
+}
+
+#btnGeneratePDF:hover {
+  background: linear-gradient(90deg, #0d20c5 0%, #273bd9 100%);
+  box-shadow: 0 10px 25px rgba(17, 39, 241, 0.6);
+  transform: translateY(-2px);
+}
+
+#btnGeneratePDF:active {
+  transform: translateY(1px);
+  box-shadow: 0 4px 10px rgba(17, 39, 241, 0.3);
+}

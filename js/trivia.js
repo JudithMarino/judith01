@@ -8,7 +8,7 @@ const questions = [
       "Fernanda Young"
     ],
     answer: 0,
-    image: "assets/images/pregunta1.jpg"
+    image: "img/miko1.jpg"  // Cambia aquí a la ruta correcta de tu imagen
   },
   {
     question: "¿En qué ciudad nació Young Miko?",
@@ -19,9 +19,9 @@ const questions = [
       "Ambato"
     ],
     answer: 1,
-    image: "assets/images/pregunta2.jpg"
+    image: "img/miko2.jpg"  // Cambia aquí a la ruta correcta de tu imagen
   },
-  // agrega más preguntas aquí
+  // Agrega más preguntas con sus rutas de imagen específicas
 ];
 
 let currentQuestionIndex = 0;
@@ -57,13 +57,25 @@ function selectOption(selectedIndex) {
   const buttons = optionsElem.querySelectorAll('button');
 
   buttons.forEach((btn, i) => {
-    btn.disabled = true;
-    if (i === current.answer) {
-      btn.style.backgroundColor = 'green';
-      btn.style.color = 'white';
-    } else if (i === selectedIndex) {
-      btn.style.backgroundColor = 'red';
-      btn.style.color = 'white';
+    btn.disabled = true; // Deshabilitar todas las opciones para que no se pueda cambiar la respuesta
+    
+    if (i === selectedIndex) {
+      // La opción que seleccionaste
+      if (i === current.answer) {
+        // Si es correcta, la pones verde
+        btn.style.backgroundColor = 'green';
+        btn.style.color = 'white';
+      } else {
+        // Si es incorrecta, la pones roja
+        btn.style.backgroundColor = 'red';
+        btn.style.color = 'white';
+      }
+    }
+
+    // Además, si la opción es la correcta y no es la que seleccionaste, también la ponemos verde para mostrar la respuesta correcta
+    if (i === current.answer && i !== selectedIndex) {
+      buttons[i].style.backgroundColor = 'green';
+      buttons[i].style.color = 'white';
     }
   });
 
@@ -76,7 +88,7 @@ nextBtn.addEventListener('click', () => {
     loadQuestion();
   } else {
     alert('¡Has terminado la trivia!');
-    // Aquí puedes mostrar el resultado o reiniciar la trivia
+    // Reiniciar la trivia
     currentQuestionIndex = 0;
     loadQuestion();
   }

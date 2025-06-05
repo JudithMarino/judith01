@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="css/datos.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
+
 </head>
 <body>
    <button id="toggleMenu" class="hamburger" aria-label="Abrir menú" aria-expanded="false">
@@ -28,6 +29,7 @@
     <main class="content">
       <section class="datos">
         <h1>Datos interesantes sobre Young Miko</h1>
+        <button id="btnGeneratePDF">Generar PDF</button>
 
         <div class="accordion">
           <div class="accordion-item">
@@ -113,5 +115,45 @@
 });
 
 </script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+  document.getElementById('btnGeneratePDF').addEventListener('click', () => {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    doc.setFontSize(18);
+    doc.text("Datos interesantes sobre Young Miko", 10, 20);
+
+    doc.setFontSize(12);
+
+    const headers = document.querySelectorAll('.accordion-header');
+    const bodies = document.querySelectorAll('.accordion-body');
+
+    let y = 30;
+
+    headers.forEach((header, index) => {
+      const title = header.textContent.trim();
+      const content = bodies[index].textContent.trim();
+
+      doc.setFont(undefined, 'bold');
+      doc.text(title, 10, y);
+      y += 7;
+
+      doc.setFont(undefined, 'normal');
+      const splitText = doc.splitTextToSize(content, 180);
+      doc.text(splitText, 10, y);
+      y += splitText.length * 7 + 5;
+
+      if (y > 270) {
+        doc.addPage();
+        y = 20;
+      }
+    });
+
+    doc.save('datos_young_miko.pdf');
+  });
+</script>
+
 </body>
 </html>
